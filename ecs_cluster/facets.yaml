@@ -10,6 +10,10 @@ spec:
   properties: {}
   required: []
 
+outputs:
+  default:
+    type: "@outputs/ecs_cluster_details"
+
 sample:
   kind: ecs_cluster
   flavor: rohit-ecs-cluster

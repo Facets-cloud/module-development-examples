@@ -28,7 +28,7 @@ This repository contains multiple examples of facets Terraform modules, includin
 
 ### `facets.yaml` Structure
 
-The `facets.yaml` file is used to define the metadata and configuration for a Terraform module, including its intent, flavor, version, and supported clouds. It also specifies the schema for inputs and provides a sample configuration.
+The `facets.yaml` file is used to define the metadata and configuration for a Terraform module, including its intent, flavor, version, supported clouds, and outputs. It also specifies the schema for inputs and provides a sample configuration.
 
 ```yaml
 # facets.yaml
@@ -49,6 +49,11 @@ clouds:
 spec: 
   # JSON schema for var.instance
   # Defines the expected structure and data types for the instance variable required by the module.
+
+outputs:
+  default:
+    type: "@outputs/<output_type>"
+  # Specifies the type associated with the module's default output. This allows other modules to request inputs of a type that may be available from various outputs of various modules.
 
 sample: 
   # Sample value for var.instance
