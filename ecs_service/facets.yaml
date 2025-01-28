@@ -17,7 +17,9 @@ inputs:
   ecs_cluster_details:
     type: "@outputs/ecs_cluster_details"
 
-outputs:
+inputs:
+  aws_vpc_details:
+    type: "@outputs/aws_vpc_details"
   default:
     type: "@outputs/ecs_service_details"
 

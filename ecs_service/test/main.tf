@@ -13,6 +13,11 @@ module "ecs_service" {
     name        = "test"
     unique_name = "project_test"
   }
+  aws_vpc_details = {
+    attributes = {
+      subnet_ids = ["subnet-12345678"]  # Replace with actual subnet IDs
+    }
+  }
   inputs = {
     ecs_cluster_details = {
       attributes = {

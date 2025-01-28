@@ -16,7 +16,11 @@ resource "aws_ecs_task_definition" "this" {
     essential = true
   }])
   requires_compatibilities = ["FARGATE"]
-  network_mode             = "none"
+  network_mode             = "awsvpc"
+  requires_compatibilities = ["FARGATE"]
+  network_configuration {
+    subnets = var.inputs["aws_vpc_details"].attributes["subnet_ids"]
+  }
   cpu                      = "256"
   memory                   = "512"
 }

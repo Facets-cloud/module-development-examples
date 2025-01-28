@@ -1,0 +1,25 @@
+intent: vpc
+flavor: default
+clouds:
+  - aws
+
+version: 1.0
+
+spec:
+  type: object
+  properties:
+    cidr:
+      type: string
+      description: "The CIDR block for the VPC."
+  required: ["cidr"]
+
+outputs:
+  aws_vpc_details:
+    type: "@outputs/aws_vpc_details"
+
+sample:
+  kind: vpc
+  flavor: default
+  version: "1.0"
+  spec:
+    cidr: "10.0.0.0/16"
