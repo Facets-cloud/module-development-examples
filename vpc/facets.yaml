@@ -14,7 +14,7 @@ spec:
   required: ["cidr"]
 
 outputs:
-  aws_vpc_details:
+  default:
     type: "@outputs/aws_vpc_details"
 
 sample:
