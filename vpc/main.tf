@@ -15,9 +15,3 @@ locals {
     subnet_ids = aws_subnet.this[*].id
   }
 }
-
-output "aws_vpc_details" {
-  value = {
-    attributes = local.output_attributes
-  }
-}
