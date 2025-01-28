@@ -1,0 +1,9 @@
+{
+  "kind": "s3",
+  "flavor": "rohit-s3",
+  "version": "1.0",
+  "spec": {
+    "acl": "private",
+    "versioning": true
+  }
+}

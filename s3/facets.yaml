@@ -1,0 +1,30 @@
+intent: s3
+flavor: rohit-s3
+clouds:
+  - aws
+
+version: 1.0
+
+spec:
+  type: object
+  properties:
+    acl:
+      type: string
+      description: "The canned ACL to apply to the bucket."
+      enum: ["private", "public-read", "public-read-write", "authenticated-read"]
+      default: "private"
+    versioning:
+      type: boolean
+      description: "Enable versioning for the bucket."
+      default: false
+  required:
+    - acl
+    - versioning
+
+sample:
+  kind: s3
+  flavor: rohit-s3
+  version: "1.0"
+  spec:
+    acl: "private"
+    versioning: false
