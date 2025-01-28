@@ -18,7 +18,7 @@ outputs:
     type: "@outputs/aws_vpc_details"
 
 sample:
-  kind: vpc
+  kind: network
   flavor: default
   version: "1.0"
   spec:
