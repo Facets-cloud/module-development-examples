@@ -5,7 +5,7 @@ resource "aws_ecs_service" "this" {
   desired_count   = 1
   launch_type     = "FARGATE"
   network_configuration {
-    subnets = var.inputs["aws_vpc_details"].attributes["private_subnet_ids"]
+    subnets = var.inputs["aws_vpc_details"].attributes["subnet_ids"]
   }
 }
 
