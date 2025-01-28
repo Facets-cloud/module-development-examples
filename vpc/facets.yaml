@@ -1,4 +1,4 @@
-intent: vpc
+intent: network
 flavor: default
 clouds:
   - aws
