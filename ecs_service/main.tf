@@ -4,6 +4,9 @@ resource "aws_ecs_service" "this" {
   task_definition = aws_ecs_task_definition.this.arn
   desired_count   = 1
   launch_type     = "FARGATE"
+  network_configuration {
+    subnets = var.inputs["aws_vpc_details"].attributes["subnet_ids"]
+  }
 }
 
 resource "aws_ecs_task_definition" "this" {
@@ -17,10 +20,6 @@ resource "aws_ecs_task_definition" "this" {
   }])
   requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
-  requires_compatibilities = ["FARGATE"]
-  network_configuration {
-    subnets = var.inputs["aws_vpc_details"].attributes["subnet_ids"]
-  }
   cpu                      = "256"
   memory                   = "512"
 }
