@@ -6,7 +6,6 @@ resource "aws_subnet" "this" {
   count             = 1
   vpc_id            = aws_vpc.this.id
   cidr_block        = cidrsubnet(var.instance.spec.cidr, 8, count.index)
-  availability_zone = data.aws_availability_zones.available.names[count.index]
 }
 
 locals {
