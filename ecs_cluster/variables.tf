@@ -4,9 +4,7 @@ variable "instance" {
     kind = string
     flavor = string
     version = string
-    spec = object({
-      capacity_providers = list(string)
-    })
+    spec = object({})
   })
 }
 

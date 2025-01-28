@@ -1,7 +1,7 @@
 resource "aws_ecs_cluster" "this" {
   name = "${var.environment.unique_name}-${var.instance_name}"
 
-  capacity_providers = var.instance.spec.capacity_providers
+  capacity_providers = ["FARGATE"]
 }
 
 locals {

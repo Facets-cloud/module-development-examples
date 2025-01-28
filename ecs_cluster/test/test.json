@@ -2,7 +2,5 @@
   "kind": "ecs_cluster",
   "flavor": "rohit-ecs-cluster",
   "version": "1.0",
-  "spec": {
-    "capacity_providers": ["FARGATE"]
-  }
+  "spec": {}
 }

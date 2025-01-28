@@ -7,20 +7,11 @@ version: 1.0
 
 spec:
   type: object
-  properties:
-    capacity_providers:
-      type: array
-      items:
-        type: string
-        enum: ["FARGATE", "FARGATE_SPOT"]
-      description: "List of capacity providers for the ECS cluster."
-      default: ["FARGATE"]
-  required:
-    - capacity_providers
+  properties: {}
+  required: []
 
 sample:
   kind: ecs_cluster
   flavor: rohit-ecs-cluster
   version: "1.0"
-  spec:
-    capacity_providers: ["FARGATE"]
+  spec: {}
