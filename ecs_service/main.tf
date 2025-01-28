@@ -16,7 +16,7 @@ resource "aws_ecs_task_definition" "this" {
     essential = true
   }])
   requires_compatibilities = ["FARGATE"]
-  network_mode             = "awsvpc"
+  network_mode             = "none"
   cpu                      = "256"
   memory                   = "512"
 }
