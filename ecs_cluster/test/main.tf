@@ -1,4 +1,5 @@
 provider "aws" {
+  version = "~> 3.74.1"
   profile = "facetsnew"
   region  = "us-east-1"
 }
