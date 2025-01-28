@@ -55,6 +55,11 @@ outputs:
     type: "@outputs/<output_type>"
   # Specifies the type associated with the module's default output. This allows other modules to request inputs of a type that may be available from various outputs of various modules.
 
+inputs:
+  <desired input name>:
+    type: "<type>"
+  # Specifies the type of input required by the module. This will make var.inputs.<desired input name> available for use in the module.
+
 sample: 
   # Sample value for var.instance
   # Provides an example of how the instance variable should be structured according to the schema.
