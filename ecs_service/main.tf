@@ -24,6 +24,6 @@ resource "aws_ecs_task_definition" "this" {
 locals {
   output_interfaces = {}
   output_attributes = {
-    service_arn = aws_ecs_service.this.arn
+    service_arn = aws_ecs_service.this.id
   }
 }
