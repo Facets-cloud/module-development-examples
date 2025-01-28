@@ -4,7 +4,7 @@ This repository is a comprehensive guide for writing, testing, and using facets 
 
 ### Overview
 
-This repository contains multiple examples of facets Terraform modules, including `s3`, `ecs_cluster`, and `ecs_service`. Each module is located in its respective directory and demonstrates different capabilities and configurations.
+This repository contains multiple examples of facets Terraform modules, including `s3`, `ecs_cluster`, `ecs_service`, and `vpc`. Each module is located in its respective directory and demonstrates different capabilities and configurations.
 
 ### Concepts
 
