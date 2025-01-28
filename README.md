@@ -51,9 +51,9 @@ spec:
   # Defines the expected structure and data types for the instance variable required by the module.
 
 outputs:
-  default:
+  <output_name>:
     type: "@outputs/<output_type>"
-  # Specifies the type associated with the module's default output. This allows other modules to request inputs of a type that may be available from various outputs of various modules.
+  # Specifies the type associated with a specific Terraform output. The <output_name> can be the name of a specific Terraform output or the special keyword 'default' to indicate the entire module's output. This allows other modules to request inputs of a type that may be available from various outputs of various modules.
 
 inputs:
   <desired input name>:
