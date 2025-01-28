@@ -17,6 +17,11 @@ spec:
       type: boolean
       description: "Enable versioning for the bucket."
       default: false
+    sse_algorithm:
+      type: string
+      description: "The server-side encryption algorithm to use."
+      enum: ["AES256", "aws:kms"]
+      default: "AES256"
   required:
     - acl
     - versioning
