@@ -1,5 +1,5 @@
 intent: network
-flavor: default
+flavor: rohit-vpc
 clouds:
   - aws
 
@@ -19,7 +19,7 @@ outputs:
 
 sample:
   kind: network
-  flavor: default
+  flavor: rohit-vpc
   version: "1.0"
   spec:
     cidr: "10.0.0.0/16"
