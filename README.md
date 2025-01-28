@@ -1,3 +1,7 @@
+### Introduction
+
+This repository is a comprehensive guide for writing, testing, and using facets Terraform modules. It introduces the principles of module development through a simple example of an S3 module. The primary goal is to enable platform engineers to create reusable modules that developers can easily consume via the Facets Blueprint Designer UI. This empowers developers to construct custom architectures, while the Facets platform automates the generation of project-specific Infrastructure as Code (IaC) necessary to manage environments based on these blueprints.
+
 ### Overview
 
 This repository contains multiple examples of facets Terraform modules, including `s3`, `ecs_cluster`, and `ecs_service`. Each module is located in its respective directory and demonstrates different capabilities and configurations.
@@ -86,6 +90,10 @@ These standardized outputs help ensure consistency across modules and facilitate
 - **Exposing Configurability**:
   - Any configurability that needs to be exposed should be done via the `var.instance.spec`. Ensure that these configurations are well abstracted to provide a seamless experience for the end user.
 
+- **Local Testing**:
+  - To test the module locally, use the `test` directory which includes a `main.tf` file and a `test.json` file. The `main.tf` file sets up the required providers and invokes the module, while `test.json` provides the `var.instance` configuration.
+  - Ensure that the required providers are configured correctly to run the tests successfully.
+
 - **Module Registration**:
   - To register the module, run the following command:
     ```bash
@@ -97,7 +105,3 @@ These standardized outputs help ensure consistency across modules and facilitate
     ```bash
     curl -s https://facets-cloud.github.io/facets-schemas/scripts/allow_preview_modules.sh | bash -s -- -c <control plane url> -u <username> -t <token> -p <project-name> -a true
     ```
-
-- **Local Testing**:
-  - To test the module locally, use the `test` directory which includes a `main.tf` file and a `test.json` file. The `main.tf` file sets up the required providers and invokes the module, while `test.json` provides the `var.instance` configuration.
-  - Ensure that the required providers are configured correctly to run the tests successfully.
