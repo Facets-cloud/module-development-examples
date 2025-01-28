@@ -1,6 +1,6 @@
 ### Overview
 
-This repository contains multiple examples of Terraform modules, including `s3`, `ecs_cluster`, and `ecs_service`. Each module is located in its respective directory and demonstrates different capabilities and configurations.
+This repository contains multiple examples of facets Terraform modules, including `s3`, `ecs_cluster`, and `ecs_service`. Each module is located in its respective directory and demonstrates different capabilities and configurations.
 
 ### Concepts
 
