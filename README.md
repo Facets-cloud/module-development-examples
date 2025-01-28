@@ -78,7 +78,7 @@ Outputs for `interfaces` and `attributes` are automatically created from `local.
 
 These standardized outputs help ensure consistency across modules and facilitate integration with other components by providing a predictable structure for accessing key information.
 
-## Tips
+## Best Practices and Guidelines
 
 - **Constructing Resource Names**: 
   - You don't need to manually specify names like `bucket_name` in your configuration. These can often be constructed using a combination of `instance_name` and `unique_name`. This approach helps maintain consistency and reduces the risk of naming conflicts.
