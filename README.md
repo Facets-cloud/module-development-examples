@@ -10,10 +10,10 @@ This repository contains multiple examples of facets Terraform modules, includin
 
 | Example      | Description                                           | Constructs Users Can Learn From                  |
 |--------------|-------------------------------------------------------|--------------------------------------------------|
-| `s3`         | Simple module with `facets.yaml` describing user input| How to define user inputs in `facets.yaml`       |
-| `ecs_service`| Uses outputs from other modules as inputs             | How to consume outputs from other modules        |
-| `vpc`        | Publishes outputs for other modules to use            | How to define outputs for use by other modules   |
-| `ecs_cluster`| Publishes outputs for other modules to use            | How to define outputs for use by other modules   |
+| [`s3`](https://github.com/Facets-cloud/module-development-examples/tree/main/s3)         | Simple module with `facets.yaml` describing user input| How to define user inputs in `facets.yaml`       |
+| [`ecs_service`](https://github.com/Facets-cloud/module-development-examples/tree/main/ecs_service) | Uses outputs from other modules as inputs             | How to consume outputs from other modules        |
+| [`vpc`](https://github.com/Facets-cloud/module-development-examples/tree/main/vpc)        | Publishes outputs for other modules to use            | How to define outputs for use by other modules   |
+| [`ecs_cluster`](https://github.com/Facets-cloud/module-development-examples/tree/main/ecs_cluster) | Publishes outputs for other modules to use            | How to define outputs for use by other modules   |
 
 ### Concepts
 
