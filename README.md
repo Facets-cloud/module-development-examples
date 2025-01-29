@@ -27,7 +27,7 @@ This repository contains multiple examples of facets Terraform modules, includin
    - When a user adds a resource to a blueprint, a JSON object is generated for that resource. This JSON object becomes one of the variables automatically passed to the corresponding Terraform module.
    - The structure of the resource JSON includes:
      - `kind`: Specifies the intent of the module, such as `mysql`, `s3`, etc.
-     - `flavor`: Indicates the specific implementation of the intent, such as `rds`, `standard`, etc.
+     - `flavor`: Indicates the specific implementation of the intent, such as `rds`, `aurora`, etc.
      - `version`: Specifies the version of the flavor.
      - `spec`: An object where the resource configuration is captured. The fields within this object are described by the underlying module's `facets.yaml`.
 
