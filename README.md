@@ -1,6 +1,6 @@
 ### Introduction
 
-This repository is a comprehensive guide for writing, testing, and using facets Terraform modules. It introduces the principles of module development through a simple example of an S3 module. The primary goal is to enable platform engineers to create reusable modules that developers can easily consume via the Facets Blueprint Designer UI. This empowers developers to construct custom architectures, while the Facets platform automates the generation of project-specific Infrastructure as Code (IaC) necessary to manage environments based on these blueprints.
+This repository is a comprehensive guide for writing, testing, and using facets Terraform modules. It introduces the principles of module development through various examples. The primary goal is to enable platform engineers to create reusable modules that developers can easily consume via the Facets Blueprint Designer UI. This empowers developers to construct custom architectures, while the Facets platform automates the generation of project-specific Infrastructure as Code (IaC) necessary to manage environments based on these blueprints.
 
 **Note:** These modules are intended for instructive purposes only and should not be used for any practical application. They serve as examples to demonstrate the concepts and practices of module development.
 
