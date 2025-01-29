@@ -254,6 +254,11 @@ module "example_module" {
   - You don't need to manually specify names like `bucket_name` in your configuration. These can often be constructed using a combination of `instance_name` and `unique_name`. This approach helps maintain consistency and reduces the risk of naming conflicts.
   - Consider using a standardized naming convention that incorporates environment and project identifiers to ensure uniqueness and clarity across your resources.
 
+- **Using Your Own Terraform Module**:
+  - If you have an existing Terraform module that you want to integrate, consider writing a wrapper module. This wrapper will invoke your existing module and help classify the variables.
+  - Identify which variables should be configured by the end user via `instance.spec` and which should come from `inputs`. This classification allows for seamless integration and flexibility.
+  - This approach simplifies the process of plugging in existing modules and ensures that they can be easily consumed within the Facets platform.
+
 - **Provider Instantiation**:
   - You do not need to instantiate providers within your module, as they are passed on from the platform. This simplifies module configuration and ensures that provider settings are consistent across different modules.
 
