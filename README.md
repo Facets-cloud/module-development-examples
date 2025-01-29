@@ -239,7 +239,7 @@ module "example_module" {
 
 ### Best Practices and Guidelines
 
-#### CI Workflow
+- **CI Workflow**:
 
 The following CI workflow is recommended for managing the lifecycle of your Terraform modules. This workflow ensures that modules are thoroughly tested in preview environments before being merged into the main branch and published as stable versions.
 
