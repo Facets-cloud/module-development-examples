@@ -4,9 +4,3 @@ resource "aws_ecs_cluster" "this" {
   capacity_providers = ["FARGATE"]
 }
 
-locals {
-  output_interfaces = {}
-  output_attributes = {
-    cluster_arn = aws_ecs_cluster.this.arn
-  }
-}
