@@ -70,7 +70,7 @@ clouds:
   # Acceptable values are aws, gcp, azure, and kubernetes.
 
 spec: 
-  # JSON schema for var.instance
+  # JSON schema for var.instance.spec
   # Defines the expected structure and data types for the instance variable required by the module.
 
 outputs:
