@@ -239,6 +239,17 @@ module "example_module" {
 
 ### Best Practices and Guidelines
 
+#### CI Workflow
+
+The following CI workflow is recommended for managing the lifecycle of your Terraform modules. This workflow ensures that modules are thoroughly tested in preview environments before being merged into the main branch and published as stable versions.
+
+```mermaid
+graph TD
+    A[Push to Feature Branch] -->|Module Published as Preview| B[Test in Preview Projects]
+    B --> C[Merge to Main Branch]
+    C -->|Publish as Stable| D[Done!]
+```
+
 - **Constructing Resource Names**:
   - You don't need to manually specify names like `bucket_name` in your configuration. These can often be constructed using a combination of `instance_name` and `unique_name`. This approach helps maintain consistency and reduces the risk of naming conflicts.
   - Consider using a standardized naming convention that incorporates environment and project identifiers to ensure uniqueness and clarity across your resources.
