@@ -251,16 +251,3 @@ module "example_module" {
 
 - **Exposing Configurability**:
   - Any configurability that needs to be exposed should be done via the `var.instance.spec`. Ensure that these configurations are well abstracted to provide a seamless experience for the end user.
-
-- **Module Registration**:
-  - Before registering the module, clean up the `.terraform` directory and the Terraform state file to avoid bloating the module size. This ensures that only necessary files are included in the module package.
-  - To register the module, run the following command:
-    ```bash
-    curl -s https://facets-cloud.github.io/facets-schemas/scripts/module_register.sh | bash -s -- -c <FACETS_CONTROL_PLANE_HOST> -u <USER> -t <TOKEN> -p <MODULE_DIR_PATH>
-    ```
-
-- **Enabling Preview Modules**:
-  - Once the module is registered, it is available to test in projects where preview modules are allowed. To make preview modules available in a project, run the following command:
-    ```bash
-    curl -s https://facets-cloud.github.io/facets-schemas/scripts/allow_preview_modules.sh | bash -s -- -c <control plane url> -u <username> -t <token> -p <project-name> -a true
-    ```
