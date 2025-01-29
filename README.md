@@ -25,7 +25,7 @@ This repository contains multiple examples of facets Terraform modules, includin
      - `spec`: An object where the resource configuration is captured. The fields within this object are described by the underlying module's `facets.yaml`.
 
 1. **Intent**:
-   - An intent represents a specific capability or function that a module is designed to provide, such as `mysql`, `postgres`, etc.
+   - An intent tells the type of resource. It represents a specific capability or function that a module is designed to provide, such as `mysql`, `postgres`, etc.
    - Intents define the purpose of a module and what it aims to achieve.
    - Modules implementing the same intent should adhere to a common output structure to ensure interoperability, allowing them to be interchangeable within a system.
    - You can list available intents using the following command:
@@ -34,7 +34,7 @@ This repository contains multiple examples of facets Terraform modules, includin
      ```
 
 2. **Flavor**:
-   - A flavor is a specific implementation of an intent.
+   - A flavor selects the implementation. It is a specific implementation of an intent.
    - For example, if the intent is `mysql`, flavors might include `rds` or `aurora`.
    - Flavors allow for different technologies or approaches to fulfill the same intent, providing flexibility in how the intent is realized.
 
