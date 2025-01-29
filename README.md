@@ -182,11 +182,11 @@ output "bucket_arn" {
 
 These standardized outputs help ensure consistency across modules and facilitate integration with other components by providing a predictable structure for accessing key information.
 
-## Local Testing
+### Local Testing
 
 To test the module locally, use the `test` directory which includes a `main.tf` file and a `test.json` file. The `main.tf` file sets up the required providers and invokes the module, while `test.json` provides the `var.instance` configuration. Ensure that the required providers are configured correctly to run the tests successfully.
 
-## Module Publishing Workflow
+### Module Publishing Workflow
 
 - **Publish module as a preview**:
   - Before publishing the module, clean up the `.terraform` directory and the Terraform state file to avoid bloating the module size. This ensures that only necessary files are included in the module package.
@@ -207,7 +207,7 @@ To test the module locally, use the `test` directory which includes a `main.tf` 
     curl -s https://facets-cloud.github.io/facets-schemas/scripts/allow_preview_modules.sh | bash -s -- -c <control_plane_url> -u <username> -t <token> -p <project_name> -a true
     ```
 
-## Best Practices and Guidelines
+### Best Practices and Guidelines
 
 - **Constructing Resource Names**:
   - You don't need to manually specify names like `bucket_name` in your configuration. These can often be constructed using a combination of `instance_name` and `unique_name`. This approach helps maintain consistency and reduces the risk of naming conflicts.
