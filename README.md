@@ -8,6 +8,13 @@ This repository is a comprehensive guide for writing, testing, and using facets 
 
 This repository contains multiple examples of facets Terraform modules, including `s3`, `ecs_cluster`, `ecs_service`, and `vpc`. Each module is located in its respective directory and demonstrates different capabilities and configurations.
 
+| Example      | Description                                           | Constructs Users Can Learn From                  |
+|--------------|-------------------------------------------------------|--------------------------------------------------|
+| `s3`         | Simple module with `facets.yaml` describing user input| How to define user inputs in `facets.yaml`       |
+| `ecs_service`| Uses outputs from other modules as inputs             | How to consume outputs from other modules        |
+| `vpc`        | Publishes outputs for other modules to use            | How to define outputs for use by other modules   |
+| `ecs_cluster`| Publishes outputs for other modules to use            | How to define outputs for use by other modules   |
+
 ### Concepts
 
 1. **Blueprint**:
