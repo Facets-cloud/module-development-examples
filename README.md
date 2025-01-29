@@ -91,10 +91,7 @@ variable "instance" {
     kind    = string   # Specifies the intent of the module, such as `mysql`, `s3`, etc.
     flavor  = string   # Indicates the specific implementation of the intent, such as `rds`, `standard`, etc.
     version = string   # Specifies the version of the flavor.
-    spec    = object({ # Contains the configuration details specific to the module.
-      bucket_name = string
-      acl         = string
-    })
+    spec    = any      # Contains the configuration details specific to the module. Schema of this will be described in `facets.yaml`
   })
 }
 
