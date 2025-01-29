@@ -80,7 +80,7 @@ module_name/
 
 This structure helps maintain consistency across modules and ensures that all necessary components are included for module functionality and testing.
 
-#### `facets.yaml`
+#### facets.yaml
 
 The `facets.yaml` file is used to define the metadata and configuration for a Terraform module, including its intent, flavor, version, supported clouds, and outputs. It also specifies the schema for inputs and provides a sample configuration.
 
@@ -121,7 +121,7 @@ sample:
 
 While the `facets.yaml` does not directly define outputs, the Terraform module itself should produce outputs that conform to a common structure for the given intent. This ensures that modules implementing the same intent can be used interchangeably and integrate seamlessly with other components.
 
-#### Terraform Variables
+#### variables.tf
 
 Facets modules can only accept a fixed set of variables. These variables are defined in the `variables.tf` file and include:
 
@@ -162,7 +162,7 @@ variable "inputs" {
 
 The `main.tf` file contains the core logic of the Terraform module. It is where the primary Terraform configuration is defined, utilizing the variables and resources necessary to achieve the module's intent.
 
-#### Terraform Outputs
+#### outputs.tf
 
 Outputs for `interfaces` and `attributes` are automatically created from `local.output_interfaces` and `local.output_attributes`, respectively. These outputs must not be explicitly defined in the code. Ensure these locals are defined even if they are empty to maintain consistency.
 
