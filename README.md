@@ -144,7 +144,7 @@ These standardized outputs help ensure consistency across modules and facilitate
 
 ## Module Publishing Workflow
 
-- **Module Registration**:
+- **Publish module as a preview**:
   - Before registering the module, clean up the `.terraform` directory and the Terraform state file to avoid bloating the module size. This ensures that only necessary files are included in the module package.
   - To register the module, run the following command:
     ```bash
