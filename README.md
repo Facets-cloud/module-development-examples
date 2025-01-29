@@ -248,3 +248,10 @@ module "example_module" {
 
 - **Exposing Configurability**:
   - Any configurability that needs to be exposed should be done via the `var.instance.spec`. Ensure that these configurations are well abstracted to provide a seamless experience for the end user.
+
+```mermaid
+graph TD
+    A[Feature Branch Development] -->|Push to Feature Branch| B[Publish Preview Version]
+    B -->|Test in Preview Enabled Projects| C[Merge to Main Branch]
+    C -->|Run CD Pipeline| D[Publish Stable Version]
+```
