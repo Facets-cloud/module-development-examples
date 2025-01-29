@@ -169,14 +169,12 @@ Outputs for `interfaces` and `attributes` are automatically created from `local.
 Example from the `s3` module:
 
 ```hcl
-output "bucket_id" {
-  description = "The ID of the S3 bucket."
-  value       = aws_s3_bucket.example.id
-}
-
-output "bucket_arn" {
-  description = "The ARN of the S3 bucket."
-  value       = aws_s3_bucket.example.arn
+locals {
+  output_interfaces = {}  # Define network interfaces if applicable
+  output_attributes = {
+    bucket_name = aws_s3_bucket.this.bucket
+    arn         = aws_s3_bucket.this.arn
+  }
 }
 ```
 
