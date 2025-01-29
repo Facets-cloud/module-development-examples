@@ -15,6 +15,8 @@ This repository contains multiple examples of facets Terraform modules, includin
 | [`vpc`](https://github.com/Facets-cloud/module-development-examples/tree/main/vpc)        | Publishes outputs for other modules to use            | How to define outputs for use by other modules   |
 | [`ecs_cluster`](https://github.com/Facets-cloud/module-development-examples/tree/main/ecs_cluster) | Publishes outputs for other modules to use            | How to define outputs for use by other modules   |
 
+Future updates will include features such as exposing providers as outputs of modules and advanced configurability of the UI rendered for each module spec in the Facets control plane.
+
 ### Concepts
 
 1. **Blueprint**:
