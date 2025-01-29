@@ -80,47 +80,6 @@ module_name/
 
 This structure helps maintain consistency across modules and ensures that all necessary components are included for module functionality and testing.
 
-#### facets.yaml
-
-The `facets.yaml` file is used to define the metadata and configuration for a Terraform module, including its intent, flavor, version, supported clouds, and outputs. It also specifies the schema for inputs and provides a sample configuration.
-
-```yaml
-# facets.yaml
-
-intent: <intent>
-# Specifies the intent that the module implements, representing its primary capability.
-
-flavor: <flavor>
-# Represents a specific implementation of the intent, allowing for different approaches.
-
-version: <version>
-# Indicates the version of the flavor, helping manage compatibility and updates.
-
-clouds:
-  # List of supported cloud providers for the module.
-  # Acceptable values are aws, gcp, azure, and kubernetes.
-
-spec: 
-  # JSON schema for var.instance.spec
-  # Defines the expected structure and data types for the instance variable required by the module.
-
-outputs:
-  <output_name>:
-    type: "@outputs/<output_type>"
-  # Specifies the type associated with a specific Terraform output. The <output_name> can be the name of a specific Terraform output or the special keyword 'default' to indicate the entire module's output. This allows other modules to request inputs of a type that may be available from various outputs of various modules.
-
-inputs:
-  <desired input name>:
-    type: "@outputs/<type>"
-  # Specifies the type of input required by the module. This will make var.inputs.<desired input name> available for use in the module.
-
-sample: 
-  # Sample value for var.instance
-  # Provides an example of how the instance variable should be structured according to the schema.
-```
-
-While the `facets.yaml` does not directly define outputs, the Terraform module itself should produce outputs that conform to a common structure for the given intent. This ensures that modules implementing the same intent can be used interchangeably and integrate seamlessly with other components.
-
 #### variables.tf
 
 Facets modules can only accept a fixed set of variables. These variables are defined in the `variables.tf` file and include:
@@ -179,6 +138,47 @@ locals {
 ```
 
 These standardized outputs help ensure consistency across modules and facilitate integration with other components by providing a predictable structure for accessing key information.
+
+#### facets.yaml
+
+The `facets.yaml` file is used to define the metadata and configuration for a Terraform module, including its intent, flavor, version, supported clouds, and outputs. It also specifies the schema for inputs and provides a sample configuration.
+
+```yaml
+# facets.yaml
+
+intent: <intent>
+# Specifies the intent that the module implements, representing its primary capability.
+
+flavor: <flavor>
+# Represents a specific implementation of the intent, allowing for different approaches.
+
+version: <version>
+# Indicates the version of the flavor, helping manage compatibility and updates.
+
+clouds:
+  # List of supported cloud providers for the module.
+  # Acceptable values are aws, gcp, azure, and kubernetes.
+
+spec: 
+  # JSON schema for var.instance.spec
+  # Defines the expected structure and data types for the instance variable required by the module.
+
+outputs:
+  <output_name>:
+    type: "@outputs/<output_type>"
+  # Specifies the type associated with a specific Terraform output. The <output_name> can be the name of a specific Terraform output or the special keyword 'default' to indicate the entire module's output. This allows other modules to request inputs of a type that may be available from various outputs of various modules.
+
+inputs:
+  <desired input name>:
+    type: "@outputs/<type>"
+  # Specifies the type of input required by the module. This will make var.inputs.<desired input name> available for use in the module.
+
+sample: 
+  # Sample value for var.instance
+  # Provides an example of how the instance variable should be structured according to the schema.
+```
+
+While the `facets.yaml` does not directly define outputs, the Terraform module itself should produce outputs that conform to a common structure for the given intent. This ensures that modules implementing the same intent can be used interchangeably and integrate seamlessly with other components.
 
 ### Local Testing
 
