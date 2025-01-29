@@ -49,7 +49,7 @@ This repository contains multiple examples of facets Terraform modules, includin
    - Versions indicate the iteration or release of a flavor.
    - They help manage changes, improvements, and compatibility over time, such as `0.1`, `0.2`, etc.
 
-### Folder Structure of a Typical Module
+### Writing a Facets Terraform Module
 
 A typical module in this repository follows a structured layout to organize its components effectively. Below is an example of the folder structure:
 
@@ -136,9 +136,62 @@ All variables should be defined in the `variables.tf` file. This includes:
   - `unique_name`: A combination of the facets project name and the facets environment name, formatted as `<facets project name>_<facets environment name>`. This is often useful in creating actual cloud resource names in combination with the `instance_name`.
 - `inputs`: (Required) A map of inputs requested by the module developer, where each key is an input name and the value is the output received from other resources in the blueprint. These inputs are defined in the `facets.yaml` and are passed into the module to facilitate integration with other modules.
 
+Example from the `s3` module:
+
+```hcl
+variable "instance" {
+  description = "The JSON representation of the resource in the facets blueprint."
+  type        = object({
+    kind    = string
+    flavor  = string
+    version = string
+    spec    = object({
+      bucket_name = string
+      acl         = string
+    })
+  })
+}
+
+variable "instance_name" {
+  description = "The architectural name for the resource as added in the facets blueprint designer."
+  type        = string
+}
+
+variable "environment" {
+  description = "An object containing details about the environment."
+  type        = object({
+    name        = string
+    unique_name = string
+  })
+}
+
+variable "inputs" {
+  description = "A map of inputs requested by the module developer."
+  type        = map(any)
+}
+```
+
+## main.tf
+
+The `main.tf` file contains the core logic of the Terraform module. It is where the primary Terraform configuration is defined, utilizing the variables and resources necessary to achieve the module's intent.
+
 ## Terraform Outputs
 
 Outputs for `interfaces` and `attributes` are automatically created from `local.output_interfaces` and `local.output_attributes`, respectively. These outputs must not be explicitly defined in the code. Ensure these locals are defined even if they are empty to maintain consistency.
+
+Example from the `s3` module:
+
+```hcl
+output "bucket_id" {
+  description = "The ID of the S3 bucket."
+  value       = aws_s3_bucket.example.id
+}
+
+output "bucket_arn" {
+  description = "The ARN of the S3 bucket."
+  value       = aws_s3_bucket.example.arn
+}
+```
 
 These standardized outputs help ensure consistency across modules and facilitate integration with other components by providing a predictable structure for accessing key information.
 
