@@ -10,6 +10,20 @@ This repository contains multiple examples of facets Terraform modules, includin
 
 ### Concepts
 
+1. **Blueprint**:
+   - A blueprint in Facets represents the architecture of a cloud application. It is a high-level design that outlines how various resources are organized and interact within the cloud environment.
+   - Blueprints are created using the Facets Blueprint Designer, where users can add and link resources together to form a cohesive architecture.
+   - Each blueprint is stored as a git repository, and it generates JSON files for each resource included in the design.
+
+2. **Blueprint Resource**:
+   - Resources are the building blocks of a blueprint. Each resource type is powered by an underlying Facets Terraform module.
+   - When a user adds a resource to a blueprint, a JSON object is generated for that resource. This JSON object becomes one of the variables automatically passed to the corresponding Terraform module.
+   - The structure of the module JSON includes:
+     - `kind`: Specifies the intent of the module, such as `mysql`, `s3`, etc.
+     - `flavor`: Indicates the specific implementation of the intent, such as `rds`, `standard`, etc.
+     - `version`: Specifies the version of the flavor.
+     - `spec`: An object where the resource configuration is captured. The fields within this object are described by the underlying module's `facets.yaml`.
+
 1. **Intent**:
    - An intent represents a specific capability or function that a module is designed to provide, such as `mysql`, `postgres`, etc.
    - Intents define the purpose of a module and what it aims to achieve.
