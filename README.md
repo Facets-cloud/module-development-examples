@@ -24,7 +24,7 @@ This repository contains multiple examples of facets Terraform modules, includin
 
 2. **Blueprint Resource**:
    - Resources are the building blocks of a blueprint. Each resource type is powered by an underlying Facets Terraform module.
-   - When a user adds a resource to a blueprint, a JSON object is generated for that resource. This JSON object becomes one of the variables automatically passed to the corresponding Terraform module.
+   - When a user adds a resource to a blueprint, a JSON object is generated for that resource. This JSON object becomes one of the variables automatically passed to the corresponding Terraform module (in var.instance.spec as you will soon learn).
    - The structure of the resource JSON includes:
      - `kind`: Specifies the intent of the module, such as `mysql`, `s3`, etc.
      - `flavor`: Indicates the specific implementation of the intent, such as `rds`, `aurora`, etc.
