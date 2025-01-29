@@ -121,7 +121,7 @@ sample:
 
 While the `facets.yaml` does not directly define outputs, the Terraform module itself should produce outputs that conform to a common structure for the given intent. This ensures that modules implementing the same intent can be used interchangeably and integrate seamlessly with other components.
 
-## Variables
+## Terraform Variables
 
 All variables should be defined in the `variables.tf` file. This includes:
 
