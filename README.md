@@ -142,6 +142,10 @@ Outputs for `interfaces` and `attributes` are automatically created from `local.
 
 These standardized outputs help ensure consistency across modules and facilitate integration with other components by providing a predictable structure for accessing key information.
 
+## Local Testing
+
+To test the module locally, use the `test` directory which includes a `main.tf` file and a `test.json` file. The `main.tf` file sets up the required providers and invokes the module, while `test.json` provides the `var.instance` configuration. Ensure that the required providers are configured correctly to run the tests successfully.
+
 ## Module Publishing Workflow
 
 - **Publish module as a preview**:
@@ -174,10 +178,6 @@ These standardized outputs help ensure consistency across modules and facilitate
 
 - **Exposing Configurability**:
   - Any configurability that needs to be exposed should be done via the `var.instance.spec`. Ensure that these configurations are well abstracted to provide a seamless experience for the end user.
-
-- **Local Testing**:
-  - To test the module locally, use the `test` directory which includes a `main.tf` file and a `test.json` file. The `main.tf` file sets up the required providers and invokes the module, while `test.json` provides the `var.instance` configuration.
-  - Ensure that the required providers are configured correctly to run the tests successfully.
 
 - **Module Registration**:
   - Before registering the module, clean up the `.terraform` directory and the Terraform state file to avoid bloating the module size. This ensures that only necessary files are included in the module package.
