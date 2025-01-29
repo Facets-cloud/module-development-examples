@@ -184,7 +184,42 @@ These standardized outputs help ensure consistency across modules and facilitate
 
 ### Local Testing
 
-To test the module locally, use the `test` directory which includes a `main.tf` file and a `test.json` file. The `main.tf` file sets up the required providers and invokes the module, while `test.json` provides the `var.instance` configuration. Ensure that the required providers are configured correctly to run the tests successfully.
+Local testing involves executing the module from your development machine. This means that the Terraform state will be stored locally, and you will need to configure the provider settings appropriately. Use the `test` directory which includes a `test.tf` file and a `test.json` file. The `test.tf` file sets up the required providers and invokes the module, while `test.json` provides the `var.instance` configuration. Ensure that the required providers are configured correctly to run the tests successfully.
+
+#### Example `test.tf`
+
+```hcl
+provider "aws" {
+  profile = "your-aws-profile"
+  region  = "us-east-1"
+}
+
+module "example_module" {
+  source = "../"
+
+  instance      = jsondecode(file("${path.module}/test.json"))
+  instance_name = "example-instance"
+  environment = {
+    name        = "development"
+    unique_name = "dev_project"
+  }
+  inputs = {}
+}
+```
+
+#### Example `test.json`
+
+```json
+{
+  "kind": "example",
+  "flavor": "example-flavor",
+  "version": "1.0",
+  "spec": {
+    "acl": "private",
+    "versioning": true
+  }
+}
+```
 
 ### Module Publishing Workflow
 
