@@ -184,7 +184,7 @@ These standardized outputs help ensure consistency across modules and facilitate
 
 ### Local Testing
 
-Local testing involves executing the module from your development machine. This means that the Terraform state will be stored locally, and you will need to configure the provider settings appropriately. Use the `test` directory which includes a `test.tf` file and a `test.json` file. The `test.tf` file sets up the required providers and invokes the module, while `test.json` provides the `var.instance` configuration. Ensure that the required providers are configured correctly to run the tests successfully.
+Local testing involves executing the module from your development machine. This means that the Terraform state will be stored locally, and you will need to configure the provider settings appropriately. Use the `test` directory which includes a `test.tf` file and a `test.json` file. The `test.tf` file sets up the required providers and invokes the module, while `test.json` provides the `var.instance` configuration. Ensure that the required providers are configured correctly to run the tests successfully. Note that you must provide the standard variables (`instance`, `instance_name`, `environment`, and `inputs`) yourself in the wrapping `test.tf`.
 
 #### Example `test.tf`
 
