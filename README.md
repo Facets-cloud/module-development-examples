@@ -121,31 +121,18 @@ sample:
 
 While the `facets.yaml` does not directly define outputs, the Terraform module itself should produce outputs that conform to a common structure for the given intent. This ensures that modules implementing the same intent can be used interchangeably and integrate seamlessly with other components.
 
-## Terraform Variables
+#### Terraform Variables
 
-All variables should be defined in the `variables.tf` file. This includes:
-
-- `instance`: (Required) The JSON representation of the resource in the facets blueprint. This is passed as an object and includes the following fields:
-  - `kind`: Specifies the intent of the module, such as `mysql`, `s3`, etc.
-  - `flavor`: Indicates the specific implementation of the intent, such as `rds`, `standard`, etc.
-  - `version`: Specifies the version of the flavor.
-  - `spec`: Contains the configuration details specific to the module. **The JSON schema for this `spec` object is defined in the `facets.yaml` file under the `spec` field. This schema describes only the `spec` part of `var.instance`, detailing the expected structure and data types for the configuration specifics.**
-- `instance_name`: (Required) The architectural name for the resource as added in the facets blueprint designer. This is a string and does not need to match the resource name in the cloud. For example, `billing-db` could be the `instance_name` if there is a resource in the blueprint named `instance_name`.
-- `environment`: (Required) An object containing details about the environment. It includes:
-  - `name`: The facets environment name.
-  - `unique_name`: A combination of the facets project name and the facets environment name, formatted as `<facets project name>_<facets environment name>`. This is often useful in creating actual cloud resource names in combination with the `instance_name`.
-- `inputs`: (Required) A map of inputs requested by the module developer, where each key is an input name and the value is the output received from other resources in the blueprint. These inputs are defined in the `facets.yaml` and are passed into the module to facilitate integration with other modules.
-
-Example from the `s3` module:
+Facets modules can only accept a fixed set of variables. These variables are defined in the `variables.tf` file and include:
 
 ```hcl
 variable "instance" {
   description = "The JSON representation of the resource in the facets blueprint."
   type        = object({
-    kind    = string
-    flavor  = string
-    version = string
-    spec    = object({
+    kind    = string   # Specifies the intent of the module, such as `mysql`, `s3`, etc.
+    flavor  = string   # Indicates the specific implementation of the intent, such as `rds`, `standard`, etc.
+    version = string   # Specifies the version of the flavor.
+    spec    = object({ # Contains the configuration details specific to the module.
       bucket_name = string
       acl         = string
     })
