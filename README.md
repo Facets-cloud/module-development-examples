@@ -24,7 +24,7 @@ This repository contains multiple examples of facets Terraform modules, includin
      - `version`: Specifies the version of the flavor.
      - `spec`: An object where the resource configuration is captured. The fields within this object are described by the underlying module's `facets.yaml`.
 
-1. **Intent**:
+3. **Intent**:
    - An intent tells the type of resource. It represents a specific capability or function that a module is designed to provide, such as `mysql`, `postgres`, etc.
    - Intents define the purpose of a module and what it aims to achieve.
    - Modules implementing the same intent should adhere to a common output structure to ensure interoperability, allowing them to be interchangeable within a system.
@@ -33,12 +33,12 @@ This repository contains multiple examples of facets Terraform modules, includin
      curl -s https://facets-cloud.github.io/facets-schemas/scripts/list-intents.sh | bash -s -- -c <CP_HOST> -u <USER> -t <TOKEN>
      ```
 
-2. **Flavor**:
+4. **Flavor**:
    - A flavor selects the implementation. It is a specific implementation of an intent.
    - For example, if the intent is `mysql`, flavors might include `rds` or `aurora`.
    - Flavors allow for different technologies or approaches to fulfill the same intent, providing flexibility in how the intent is realized.
 
-3. **Version**:
+5. **Version**:
    - Versions indicate the iteration or release of a flavor.
    - They help manage changes, improvements, and compatibility over time, such as `0.1`, `0.2`, etc.
 
