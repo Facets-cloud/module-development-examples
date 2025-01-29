@@ -97,3 +97,38 @@ These standardized outputs help ensure consistency across modules and facilitate
 - **Local Testing**:
   - To test the module locally, use the `test` directory which includes a `main.tf` file and a `test.json` file. The `main.tf` file sets up the required providers and invokes the module, while `test.json` provides the `var.instance` configuration.
   - Ensure that the required providers are configured correctly to run the tests successfully.
+# S3 Bucket Module
+
+This module creates an S3 bucket on AWS with configurable ACL, versioning, and server-side encryption.
+
+## Variables
+
+- **instance**: JSON representation of the resource in the facets blueprint.
+- **instance_name**: Architectural name for the resource.
+- **environment**: Details about the environment.
+- **inputs**: Map of inputs requested by the module developer.
+
+## Outputs
+
+- **bucket_name**: The name of the created S3 bucket.
+- **arn**: The ARN of the created S3 bucket.
+
+## Usage
+
+To use this module, include it in your Terraform configuration and provide the necessary variables.
+
+## Example
+
+```hcl
+module "s3_bucket" {
+  source = "../"
+
+  instance      = jsondecode(file("${path.module}/test.json"))
+  instance_name = "test-bucket"
+  environment = {
+    name        = "test"
+    unique_name = "project_test"
+  }
+  inputs = {}
+}
+```
