@@ -36,7 +36,7 @@ This repository contains multiple examples of facets Terraform modules, includin
 4. **Flavor**:
    - A flavor selects the specific implementation of an intent.
    - For example, if the intent is `mysql`, flavors might include `rds` or `aurora`.
-   - Flavors allow for different technologies or approaches to fulfill the same intent, providing flexibility in how the intent is realized.
+   - Each flavor is backed by a Facets Terraform module. Flavors allow for different technologies or approaches to fulfill the same intent, providing flexibility in how the intent is realized.
 
 5. **Version**:
    - Versions indicate the iteration or release of a flavor.
