@@ -37,7 +37,7 @@ This repository contains multiple examples of facets Terraform modules, includin
    - Modules implementing the same intent should adhere to a common output structure to ensure interoperability, allowing them to be interchangeable within a system.
    - You can list available intents using the following command:
      ```bash
-     curl -s https://facets-cloud.github.io/facets-schemas/scripts/list-intents.sh | bash -s -- -c <CP_HOST> -u <USER> -t <TOKEN>
+     curl -s https://facets-cloud.github.io/facets-schemas/scripts/list-intents.sh | bash -s -- -c <control_plane_url> -u <username> -t <token>
      ```
 
 4. **Flavor**:
@@ -152,19 +152,19 @@ To test the module locally, use the `test` directory which includes a `main.tf` 
   - Before publishing the module, clean up the `.terraform` directory and the Terraform state file to avoid bloating the module size. This ensures that only necessary files are included in the module package.
   - To publish the module as a preview, allowing module developers to test it in testing projects, run the following command:
     ```bash
-    curl -s https://facets-cloud.github.io/facets-schemas/scripts/module_register.sh | bash -s -- -c <FACETS_CONTROL_PLANE_HOST> -u <USER> -t <TOKEN> -p <MODULE_DIR_PATH>
+    curl -s https://facets-cloud.github.io/facets-schemas/scripts/module_register.sh | bash -s -- -c <control_plane_url> -u <username> -t <token> -p <module_dir_path>
     ```
 
 - **Publishing the Module**:
   - To publish the module in preview and make it available to all projects, use the following command:
     ```bash
-    curl -s https://facets-cloud.github.io/facets-schemas/scripts/module_publish.sh | bash -s -- -c <control plane url> -u <username> -t <token> -i <module_intent> -f <module_flavor> -v <module_version>
+    curl -s https://facets-cloud.github.io/facets-schemas/scripts/module_publish.sh | bash -s -- -c <control_plane_url> -u <username> -t <token> -i <module_intent> -f <module_flavor> -v <module_version>
     ```
 
 - **Enabling Preview Modules**:
   - Once the module is registered, it is available to test in projects where preview modules are allowed. To make preview modules available in a project, run the following command:
     ```bash
-    curl -s https://facets-cloud.github.io/facets-schemas/scripts/allow_preview_modules.sh | bash -s -- -c <control plane url> -u <username> -t <token> -p <project-name> -a true
+    curl -s https://facets-cloud.github.io/facets-schemas/scripts/allow_preview_modules.sh | bash -s -- -c <control_plane_url> -u <username> -t <token> -p <project_name> -a true
     ```
 
 ## Best Practices and Guidelines
