@@ -1,12 +1,12 @@
 ### Introduction
 
-This repository is a comprehensive guide for writing, testing, and using facets Terraform modules. It introduces the principles of module development through various examples. The primary goal is to enable platform engineers to create reusable modules that developers can easily consume via the Facets Blueprint Designer UI. This empowers developers to construct custom architectures, while the Facets platform automates the generation of project-specific Infrastructure as Code (IaC) necessary to manage environments based on these blueprints.
+This repository is a comprehensive guide for writing, testing, and using Facets Terraform modules. It introduces the principles of module development through various examples. The primary goal is to enable platform engineers to create reusable modules that developers can easily consume via the Facets Blueprint Designer UI. This empowers developers to construct custom architectures, while the Facets platform automates the generation of project-specific Infrastructure as Code (IaC) necessary to manage environments based on these blueprints.
 
 **Note:** These modules are intended for instructive purposes only and should not be used for any practical application. They serve as examples to demonstrate the concepts and practices of module development.
 
 ### Overview
 
-This repository contains multiple examples of facets Terraform modules, including `s3`, `ecs_cluster`, `ecs_service`, and `vpc`. Each module is located in its respective directory and demonstrates different capabilities and configurations.
+This repository contains multiple examples of Facets Terraform modules, including `s3`, `ecs_cluster`, `ecs_service`, and `vpc`. Each module is located in its respective directory and demonstrates different capabilities and configurations.
 
 | Example      | Description                                           | Constructs Users Can Learn From                  |
 |--------------|-------------------------------------------------------|--------------------------------------------------|
@@ -88,7 +88,7 @@ Facets modules can only accept a fixed set of variables. These variables are def
 
 ```hcl
 variable "instance" {
-  description = "The JSON representation of the resource in the facets blueprint."
+  description = "The JSON representation of the resource in the Facets blueprint."
   type        = object({
     kind    = string   # Specifies the intent of the module, such as `mysql`, `s3`, etc.
     flavor  = string   # Indicates the specific implementation of the intent, such as `rds`, `standard`, etc.
@@ -98,7 +98,7 @@ variable "instance" {
 }
 
 variable "instance_name" {
-  description = "The architectural name for the resource as added in the facets blueprint designer."
+  description = "The architectural name for the resource as added in the Facets blueprint designer."
   type        = string
 }
 
