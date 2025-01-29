@@ -49,6 +49,37 @@ This repository contains multiple examples of facets Terraform modules, includin
    - Versions indicate the iteration or release of a flavor.
    - They help manage changes, improvements, and compatibility over time, such as `0.1`, `0.2`, etc.
 
+### Folder Structure of a Typical Module
+
+A typical module in this repository follows a structured layout to organize its components effectively. Below is an example of the folder structure:
+
+```
+module_name/
+│
+├── facets.yaml
+│   └── Defines the metadata and configuration for the module.
+│
+├── main.tf
+│   └── Contains the primary Terraform configuration for the module.
+│
+├── variables.tf
+│   └── Declares the input variables used by the module.
+│
+├── outputs.tf
+│   └── Specifies the outputs that the module will produce.
+│
+├── README.md
+│   └── Provides documentation and usage instructions for the module.
+│
+└── test/
+    ├── main.tf
+    │   └── Sets up the test environment for the module.
+    └── test.json
+        └── Provides test configurations for the module.
+```
+
+This structure helps maintain consistency across modules and ensures that all necessary components are included for module functionality and testing.
+
 ### `facets.yaml` Structure
 
 The `facets.yaml` file is used to define the metadata and configuration for a Terraform module, including its intent, flavor, version, supported clouds, and outputs. It also specifies the schema for inputs and provides a sample configuration.
