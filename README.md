@@ -80,7 +80,7 @@ outputs:
 
 inputs:
   <desired input name>:
-    type: "<type>"
+    type: "@outputs/<type>"
   # Specifies the type of input required by the module. This will make var.inputs.<desired input name> available for use in the module.
 
 sample: 
