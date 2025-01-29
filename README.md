@@ -10,10 +10,10 @@ This repository contains multiple examples of facets Terraform modules, includin
 
 | Example      | Description                                           | Constructs Users Can Learn From                  |
 |--------------|-------------------------------------------------------|--------------------------------------------------|
-| [`s3`](https://github.com/Facets-cloud/module-development-examples/tree/main/s3)         | Simple module with `facets.yaml` describing user input| How to define user inputs in `facets.yaml`       |
-| [`ecs_service`](https://github.com/Facets-cloud/module-development-examples/tree/main/ecs_service) | Uses outputs from other modules as inputs             | How to consume outputs from other modules        |
-| [`vpc`](https://github.com/Facets-cloud/module-development-examples/tree/main/vpc)        | Publishes outputs for other modules to use            | How to define outputs for use by other modules   |
-| [`ecs_cluster`](https://github.com/Facets-cloud/module-development-examples/tree/main/ecs_cluster) | Publishes outputs for other modules to use            | How to define outputs for use by other modules   |
+| [`s3`](examples/s3)         | Simple module with `facets.yaml` describing user input| How to define user inputs in `facets.yaml`       |
+| [`ecs_service`](examples/ecs_service) | Uses outputs from other modules as inputs             | How to consume outputs from other modules        |
+| [`vpc`](examples/vpc)        | Publishes outputs for other modules to use            | How to define outputs for use by other modules   |
+| [`ecs_cluster`](examples/ecs_cluster) | Publishes outputs for other modules to use            | How to define outputs for use by other modules   |
 
 Future updates will include features such as exposing providers as outputs of modules and advanced configurability of the UI rendered for each module spec in the Facets control plane.
 
