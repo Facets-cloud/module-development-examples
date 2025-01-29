@@ -136,7 +136,7 @@ All variables should be defined in the `variables.tf` file. This includes:
   - `unique_name`: A combination of the facets project name and the facets environment name, formatted as `<facets project name>_<facets environment name>`. This is often useful in creating actual cloud resource names in combination with the `instance_name`.
 - `inputs`: (Required) A map of inputs requested by the module developer, where each key is an input name and the value is the output received from other resources in the blueprint. These inputs are defined in the `facets.yaml` and are passed into the module to facilitate integration with other modules.
 
-## Outputs
+## Terraform Outputs
 
 Outputs for `interfaces` and `attributes` are automatically created from `local.output_interfaces` and `local.output_attributes`, respectively. These outputs must not be explicitly defined in the code. Ensure these locals are defined even if they are empty to maintain consistency.
 
