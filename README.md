@@ -144,6 +144,24 @@ These standardized outputs help ensure consistency across modules and facilitate
 
 ## Module Publishing Workflow
 
+- **Module Registration**:
+  - Before registering the module, clean up the `.terraform` directory and the Terraform state file to avoid bloating the module size. This ensures that only necessary files are included in the module package.
+  - To register the module, run the following command:
+    ```bash
+    curl -s https://facets-cloud.github.io/facets-schemas/scripts/module_register.sh | bash -s -- -c <FACETS_CONTROL_PLANE_HOST> -u <USER> -t <TOKEN> -p <MODULE_DIR_PATH>
+    ```
+
+- **Publishing the Module**:
+  - To publish the module in preview and make it available to all projects, use the following command:
+    ```bash
+    curl -s https://facets-cloud.github.io/facets-schemas/scripts/module_publish.sh | bash -s -- -c <control plane url> -u <username> -t <token> -i <module_intent> -f <module_flavor> -v <module_version>
+    ```
+
+- **Enabling Preview Modules**:
+  - Once the module is registered, it is available to test in projects where preview modules are allowed. To make preview modules available in a project, run the following command:
+    ```bash
+    curl -s https://facets-cloud.github.io/facets-schemas/scripts/allow_preview_modules.sh | bash -s -- -c <control plane url> -u <username> -t <token> -p <project-name> -a true
+    ```
 
 ## Best Practices and Guidelines
 
