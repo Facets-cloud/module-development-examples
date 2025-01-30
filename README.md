@@ -165,12 +165,16 @@ spec:
 outputs:
   <output_name>:
     type: "@outputs/<output_type>"
-  # Specifies the type associated with a specific Terraform output. The <output_name> can be the name of a specific Terraform output or the special keyword 'default' to indicate the entire module's output. This allows other modules to request inputs of a type that may be available from various outputs of various modules.
+    providers:
+      - <provider_name>
+  # Specifies the type associated with a specific Terraform output. The <output_name> can be the name of a specific Terraform output or the special keyword 'default' to indicate the entire module's output. The providers section lists the providers exposed by this output. For more details, see [exposing_providers.md](exposing_providers.md).
 
 inputs:
   <desired input name>:
     type: "@outputs/<type>"
-  # Specifies the type of input required by the module. This will make var.inputs.<desired input name> available for use in the module.
+    providers:
+      - <provider_name>
+  # Specifies the type of input required by the module. This will make var.inputs.<desired input name> available for use in the module. The providers section lists the providers required by this input. For more details, see [exposing_providers.md](exposing_providers.md).
 
 sample: 
   # Sample value for var.instance
