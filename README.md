@@ -167,7 +167,9 @@ outputs:
     type: "@outputs/<output_type>"
     providers:
       - <provider_name>
-  # Specifies the type associated with a specific Terraform output. The <output_name> can be the name of a specific Terraform output or the special keyword 'default' to indicate the entire module's output. The providers section lists the providers exposed by this output. For more details, see [exposing_providers.md](exposing_providers.md).
+  # Specifies the type associated with a specific Terraform output. The <output_name> can be the name of a specific Terraform output or the special keyword 'default' to indicate the entire module's output. The providers section lists the providers exposed by this output.
+  
+For more details, see [exposing_providers.md](exposing_providers.md).
 
 inputs:
   <desired input name>:
