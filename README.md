@@ -8,13 +8,13 @@ This repository is a comprehensive guide for writing, testing, and using Facets 
 
 This repository contains multiple examples of Facets Terraform modules, including `s3`, `ecs_cluster`, `ecs_service`, and `vpc`. Each module is located in its respective directory and demonstrates different capabilities and configurations.
 
-| Example      | Description                                           | Constructs Users Can Learn From                  |
-|--------------|-------------------------------------------------------|--------------------------------------------------|
-| [`s3`](examples/s3)         | Simple module with `facets.yaml` describing user input| How to define user inputs in `facets.yaml`       |
-| [`ecs_service`](examples/ecs_service) | Uses outputs from other modules as inputs             | How to consume outputs from other modules        |
-| [`vpc`](examples/vpc)        | Publishes outputs for other modules to use            | How to define outputs for use by other modules   |
-| [`ecs_cluster`](examples/ecs_cluster) | Publishes outputs for other modules to use            | How to define outputs for use by other modules   |
-| [`gke_autopilot`](examples/gke_autopilot) | Exposes providers to other modules                    | How to expose providers for use by other modules |
+| Example      | Constructs Users Can Learn From                  |
+|--------------|--------------------------------------------------|
+| [`s3`](examples/s3)         | How to define user inputs in `facets.yaml`       |
+| [`ecs_service`](examples/ecs_service) | How to consume outputs from other modules        |
+| [`vpc`](examples/vpc)        | How to define outputs for use by other modules   |
+| [`ecs_cluster`](examples/ecs_cluster) | How to define outputs for use by other modules   |
+| [`gke_autopilot`](examples/gke_autopilot) | How to expose providers for use by other modules |
 
 Future updates will include features such as exposing providers as outputs of modules and advanced configurability of the UI rendered for each module spec in the Facets control plane.
 
