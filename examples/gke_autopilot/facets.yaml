@@ -26,6 +26,13 @@ outputs:
             host: attributes.endpoint
             cluster_ca_certificate: attributes.ca_certificate
             token: attributes.client_token
+      kubernetes:
+        source: hashicorp/kubernetes
+        version: 2.11.0
+        attributes:
+          host: attributes.endpoint
+          cluster_ca_certificate: attributes.ca_certificate
+          token: attributes.client_token
 
 sample:
   kind: kubernetes_cluster
