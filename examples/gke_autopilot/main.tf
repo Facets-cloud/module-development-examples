@@ -1,7 +1,7 @@
 data "google_client_config" "default" {}
 
 resource "google_container_cluster" "this" {
-  name     = var.instance.spec.cluster_name
+  name     = "${var.environment.unique_name}-${var.instance_name}"
   location = var.inputs["gcp_network_details"].attributes["region"]
 
   enable_autopilot = true

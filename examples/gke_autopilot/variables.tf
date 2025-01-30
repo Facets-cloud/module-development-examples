@@ -4,9 +4,7 @@ variable "instance" {
     kind = string
     flavor = string
     version = string
-    spec = object({
-      cluster_name = string
-    })
+    spec = object({})
   })
 }
 
