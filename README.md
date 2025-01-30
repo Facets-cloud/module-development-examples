@@ -8,13 +8,16 @@ This repository is a comprehensive guide for writing, testing, and using Facets 
 
 This repository contains multiple examples of Facets Terraform modules, including `s3`, `ecs_cluster`, `ecs_service`, and `vpc`. Each module is located in its respective directory and demonstrates different capabilities and configurations.
 
-| Example      | Constructs Users Can Learn From                  |
-|--------------|--------------------------------------------------|
-| [`s3`](examples/s3)         | How to define user inputs in `facets.yaml`       |
-| [`ecs_service`](examples/ecs_service) | How to consume outputs from other modules        |
-| [`vpc`](examples/vpc)        | How to define outputs for use by other modules   |
-| [`ecs_cluster`](examples/ecs_cluster) | How to define outputs for use by other modules   |
-| [`gke_autopilot`](examples/gke_autopilot) | How to expose providers for use by other modules |
+| Example                  | Constructs Users Can Learn From                              |
+|--------------------------|--------------------------------------------------------------|
+| [`s3`](examples/s3)      | Defining user inputs and exposing outputs for other modules  |
+| [`ecs_service`](examples/ecs_service) | Consuming inputs and outputs from other modules  |
+| [`vpc`](examples/vpc)    | Defining user inputs and exposing outputs for other modules  |
+| [`ecs_cluster`](examples/ecs_cluster) | Exposing outputs for other modules to consume    |
+| [`gke_autopilot`](examples/gke_autopilot) | Exposing and consuming providers              |
+| [`azure_vnet`](examples/azure_vnet) | Defining user inputs and exposing outputs         |
+| [`azure_vmss`](examples/azure_vmss) | Consuming inputs and exposing outputs             |
+| [`gcp_network`](examples/gcp_network) | Defining user inputs and exposing outputs        |
 
 Future updates will include features such as exposing providers as outputs of modules and advanced configurability of the UI rendered for each module spec in the Facets control plane.
 
