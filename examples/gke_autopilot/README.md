@@ -9,7 +9,6 @@ This module creates a GKE Autopilot cluster on Google Cloud Platform. It is desi
 
 ## Configurability
 
-- **Cluster Name**: Specify the name of the GKE Autopilot cluster.
 - **Network Details**: Requires GCP network details for cluster configuration.
 
 ## Usage
