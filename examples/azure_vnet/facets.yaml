@@ -1,0 +1,34 @@
+intent: network
+flavor: az-vnet-test
+clouds:
+  - azure
+
+version: 1.0
+
+spec:
+  type: object
+  properties:
+    address_space:
+      type: string
+      description: "The address space for the VNet."
+    subnet_prefix:
+      type: string
+      description: "The address prefix for the subnet."
+    location:
+      type: string
+      description: "The Azure region for the VNet."
+      enum: ["eastus", "westus", "centralus", "eastus2", "southindia", "centralindia", "westindia"]
+  required: ["address_space", "subnet_prefix", "location"]
+
+outputs:
+  default:
+    type: "@outputs/azure_vnet_details"
+
+sample:
+  kind: network
+  flavor: az-vnet-test
+  version: "1.0"
+  spec:
+    address_space: "10.0.0.0/16"
+    subnet_prefix: "10.0.1.0/24"
+    location: "centralindia"

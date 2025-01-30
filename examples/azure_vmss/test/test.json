@@ -1,0 +1,11 @@
+{
+  "kind": "misc",
+  "flavor": "az-vmss-test",
+  "version": "1.0",
+  "spec": {
+    "vm_size": "Standard_DS1_v2",
+    "instance_count": 2,
+    "admin_username": "azureuser",
+    "admin_password": "P@ssw0rd1234"
+  }
+}
