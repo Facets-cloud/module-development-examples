@@ -1,5 +1,5 @@
 intent: network
-flavor: gcp-network
+flavor: gcp-network-test
 clouds:
   - gcp
 
@@ -19,7 +19,7 @@ outputs:
 
 sample:
   kind: network
-  flavor: gcp-network
+  flavor: gcp-network-test
   version: "1.0"
   spec:
     cidr: "10.0.0.0/16"
