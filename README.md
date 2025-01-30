@@ -168,8 +168,6 @@ outputs:
     providers:
       - <provider_name>
   # Specifies the type associated with a specific Terraform output. The <output_name> can be the name of a specific Terraform output or the special keyword 'default' to indicate the entire module's output. The providers section lists the providers exposed by this output.
-  
-For more details, see [exposing_providers.md](exposing_providers.md).
 
 inputs:
   <desired input name>:
@@ -182,6 +180,8 @@ sample:
   # Sample value for var.instance
   # Provides an example of how the instance variable should be structured according to the schema.
 ```
+
+For more details on exposing and consuming providers, see [exposing_providers.md](exposing_providers.md).
 
 While the `facets.yaml` does not directly define outputs, the Terraform module itself should produce outputs that conform to a common structure for the given intent. This ensures that modules implementing the same intent can be used interchangeably and integrate seamlessly with other components.
 
