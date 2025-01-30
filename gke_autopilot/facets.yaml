@@ -1,0 +1,29 @@
+intent: kubernetes_cluster
+flavor: gke-autopilot
+clouds:
+  - gcp
+
+version: 1.0
+
+spec:
+  type: object
+  properties:
+    cluster_name:
+      type: string
+      description: "The name of the GKE Autopilot cluster."
+  required: ["cluster_name"]
+
+inputs:
+  gcp_network_details:
+    type: "@outputs/gcp_network_details"
+
+outputs:
+  default:
+    type: "@outputs/kubernetes_cluster_details"
+
+sample:
+  kind: kubernetes_cluster
+  flavor: gke-autopilot
+  version: "1.0"
+  spec:
+    cluster_name: "my-autopilot-cluster"

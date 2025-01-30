@@ -1,0 +1,8 @@
+{
+  "kind": "kubernetes_cluster",
+  "flavor": "gke-autopilot",
+  "version": "1.0",
+  "spec": {
+    "cluster_name": "my-autopilot-cluster"
+  }
+}

@@ -1,0 +1,25 @@
+intent: network
+flavor: gcp-network
+clouds:
+  - gcp
+
+version: 1.0
+
+spec:
+  type: object
+  properties:
+    cidr:
+      type: string
+      description: "The CIDR block for the GCP network."
+  required: ["cidr"]
+
+outputs:
+  default:
+    type: "@outputs/gcp_network_details"
+
+sample:
+  kind: network
+  flavor: gcp-network
+  version: "1.0"
+  spec:
+    cidr: "10.0.0.0/16"
