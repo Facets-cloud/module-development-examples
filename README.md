@@ -14,6 +14,7 @@ This repository contains multiple examples of Facets Terraform modules, includin
 | [`ecs_service`](examples/ecs_service) | Uses outputs from other modules as inputs             | How to consume outputs from other modules        |
 | [`vpc`](examples/vpc)        | Publishes outputs for other modules to use            | How to define outputs for use by other modules   |
 | [`ecs_cluster`](examples/ecs_cluster) | Publishes outputs for other modules to use            | How to define outputs for use by other modules   |
+| [`gke_autopilot`](examples/gke_autopilot) | Exposes providers to other modules                    | How to expose providers for use by other modules |
 
 Future updates will include features such as exposing providers as outputs of modules and advanced configurability of the UI rendered for each module spec in the Facets control plane.
 
