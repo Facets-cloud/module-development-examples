@@ -1,3 +1,5 @@
+data "google_client_config" "default" {}
+
 resource "google_container_cluster" "this" {
   name     = var.instance.spec.cluster_name
   location = "us-central1"
