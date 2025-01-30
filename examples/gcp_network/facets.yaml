@@ -1,0 +1,29 @@
+intent: network
+flavor: gcp-network-test
+clouds:
+  - gcp
+
+version: 1.0
+
+spec:
+  type: object
+  properties:
+    cidr:
+      type: string
+      description: "The CIDR block for the GCP network."
+    region:
+      type: string
+      description: "The region for the GCP network."
+      enum: ["us-central1", "us-east1", "us-west1"]
+  required: ["cidr", "region"]
+
+outputs:
+  default:
+    type: "@outputs/gcp_network_details"
+
+sample:
+  kind: network
+  flavor: gcp-network-test
+  version: "1.0"
+  spec:
+    cidr: "10.0.0.0/16"

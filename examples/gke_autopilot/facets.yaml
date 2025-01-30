@@ -1,0 +1,42 @@
+intent: kubernetes_cluster
+flavor: gke-autopilot
+clouds:
+  - gcp
+
+version: 1.0
+
+spec:
+  type: object
+  properties: {}
+  required: []
+
+inputs:
+  gcp_network_details:
+    type: "@outputs/gcp_network_details"
+
+outputs:
+  default:
+    type: "@outputs/kubernetes_cluster_details"
+    providers:
+      helm:
+        source: hashicorp/helm
+        version: 2.8.0
+        attributes:
+          kubernetes:
+            host: attributes.endpoint
+            cluster_ca_certificate: attributes.ca_certificate
+            token: attributes.client_token
+      kubernetes:
+        source: hashicorp/kubernetes
+        version: 2.17.0
+        attributes:
+          host: attributes.endpoint
+          cluster_ca_certificate: attributes.ca_certificate
+          token: attributes.client_token
+
+sample:
+  kind: kubernetes_cluster
+  flavor: gke-autopilot
+  version: "1.0"
+  spec:
+    cluster_name: "my-autopilot-cluster"
