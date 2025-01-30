@@ -174,7 +174,7 @@ inputs:
     type: "@outputs/<type>"
     providers:
       - <provider_name>
-  # Specifies the type of input required by the module. This will make var.inputs.<desired input name> available for use in the module. The providers section lists the providers required by this input. For more details, see [exposing_providers.md](exposing_providers.md).
+  # Specifies the type of input required by the module. This will make var.inputs.<desired input name> available for use in the module. The providers section lists the providers required by this module along with this input. For more details, see [exposing_providers.md](exposing_providers.md).
 
 sample: 
   # Sample value for var.instance
