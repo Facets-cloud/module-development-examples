@@ -1,0 +1,90 @@
+intent: kubernetes_cluster
+flavor: k3s
+clouds:
+  - aws
+  - kubernetes
+  - azure
+  - gcp
+
+version: 1.0
+
+spec:
+  type: object
+  properties:
+    master_nodes:
+      title: Master Nodes
+      description: "Objects of all master nodes with connection details."
+      type: object
+      patternProperties:
+        keyPattern: "^[a-zA-Z0-9_.-]*$"
+        title: Master Node Object
+        description: "Details of the master node."
+        properties:
+          host:
+            type: string
+            description: "IP address or hostname of the master node."
+          username:
+            type: string
+            description: "Username for SSH access to the master node."
+          private_key:
+            type: string
+            description: "Private key for SSH access to the master node."
+        required: ["host", "username", "private_key"]
+    agent_nodes:
+      title: Agent Nodes
+      description: "Objects of all agent nodes with connection details."
+      type: object
+      patternProperties:
+        keyPattern: "^[a-zA-Z0-9_.-]*$"
+        title: Agent Node Object
+        description: "Details of the agent node."
+        properties:
+          host:
+            type: string
+            description: "IP address or hostname of the agent node."
+          username:
+            type: string
+            description: "Username for SSH access to the agent node."
+          private_key:
+            type: string
+            description: "Private key for SSH access to the agent node."
+        required: ["host", "username", "private_key"]
+  required: ["master_nodes", "agent_nodes"]
+
+outputs:
+  default:
+    type: "@outputs/kubernetes_cluster_details"
+    providers:
+      kubernetes:
+        source: "hashicorp/kubernetes"
+        version: "2.17.0"
+        attributes:
+          host: api_endpoint
+          cluster_ca_certificate: cluster_ca_certificate
+          client_certificate: client_certificate
+          client_key: client_key
+      helm:
+        source: "hashicorp/helm"
+        version: "2.8.0"
+        attributes:
+          kubernetes:
+            host: attributes.api_endpoint
+            cluster_ca_certificate: attributes.cluster_ca_certificate
+            client_certificate: attributes.client_certificate
+            client_key: attributes.client_key
+
+sample:
+  kind: kubernetes_cluster
+  flavor: k3s
+  version: "1.0"
+  spec:
+    master_nodes:
+      master1:
+        host: "192.168.1.1"
+        username: "admin"
+        private_key: "-----BEGIN PRIVATE KEY-----\n..."
+    agent_nodes:
+      agent1:
+        host: "192.168.1.2"
+        username: "admin"
+        private_key: "-----BEGIN PRIVATE KEY-----\n..."

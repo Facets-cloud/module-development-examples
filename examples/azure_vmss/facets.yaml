@@ -15,7 +15,11 @@ spec:
     instance_count:
       type: integer
       description: "The number of instances in the scale set."
-  required: ["vm_size", "instance_count"]
+    instance_type:
+      type: string
+      description: "The type of instance to use, either spot or ondemand."
+      enum: ["spot", "ondemand"]
+  required: ["vm_size", "instance_count", "instance_type"]
 
 inputs:
   azure_vnet_details:

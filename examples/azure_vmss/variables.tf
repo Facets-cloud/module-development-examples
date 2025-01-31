@@ -9,6 +9,7 @@ variable "instance" {
       instance_count = number
       admin_username = string
       admin_password = string
+      instance_type  = string
     })
   })
 }

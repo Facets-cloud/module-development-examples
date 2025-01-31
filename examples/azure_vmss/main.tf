@@ -15,6 +15,10 @@ resource "azurerm_linux_virtual_machine_scale_set" "this" {
   instances           = var.instance.spec.instance_count
   resource_group_name = var.inputs["azure_vnet_details"].attributes["resource_group_name"]
 
+  priority = var.instance.spec.instance_type == "spot" ? "Spot" : "Regular"
+
+  eviction_policy = var.instance.spec.instance_type == "spot" ? "Deallocate" : null
+
   network_interface {
     name    = "${var.environment.unique_name}-${var.instance_name}-nic"
     primary = true
