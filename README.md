@@ -18,6 +18,7 @@ This repository contains multiple examples of Facets Terraform modules, includin
 | [`azure_vnet`](examples/azure_vnet) | Defining user inputs and exposing outputs         |
 | [`azure_vmss`](examples/azure_vmss) | Consuming inputs and exposing outputs             |
 | [`gcp_network`](examples/gcp_network) | Defining user inputs and exposing outputs        |
+| [`k3s`](examples/k3s)    | Provisioning a k3s cluster and exposing Kubernetes and Helm providers |
 
 Future updates will include features such as exposing providers as outputs of modules and advanced configurability of the UI rendered for each module spec in the Facets control plane.
 
