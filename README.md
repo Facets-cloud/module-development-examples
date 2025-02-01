@@ -15,6 +15,7 @@ This repository contains multiple examples of Facets Terraform modules, includin
 | [`vpc`](examples/vpc)    | Defining user inputs and exposing outputs for other modules  |
 | [`ecs_cluster`](examples/ecs_cluster) | Exposing outputs for other modules to consume    |
 | [`gke_autopilot`](examples/gke_autopilot) | Exposing and consuming providers              |
+| [`aws_vm`](examples/aws_vm) | Defining user inputs and exposing outputs for AWS VMs   |
 | [`azure_vnet`](examples/azure_vnet) | Defining user inputs and exposing outputs         |
 | [`azure_vmss`](examples/azure_vmss) | Consuming inputs and exposing outputs             |
 | [`gcp_network`](examples/gcp_network) | Defining user inputs and exposing outputs        |

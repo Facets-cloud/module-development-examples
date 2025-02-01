@@ -1,0 +1,10 @@
+{
+  "kind": "aws_vm",
+  "flavor": "standard",
+  "version": "1.0",
+  "spec": {
+    "instance_count": 2,
+    "region": "us-east-1",
+    "instance_type": "t2.micro"
+  }
+}

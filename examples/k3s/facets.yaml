@@ -20,9 +20,12 @@ spec:
         title: Master Node Object
         description: "Details of the master node."
         properties:
-          host:
+          private_ip:
             type: string
-            description: "IP address or hostname of the master node."
+            description: "Private IP address of the master node."
+          public_ip:
+            type: string
+            description: "Public IP address or hostname of the master node."
           username:
             type: string
             description: "Username for SSH access to the master node."
@@ -39,9 +42,12 @@ spec:
         title: Agent Node Object
         description: "Details of the agent node."
         properties:
-          host:
+          private_ip:
             type: string
-            description: "IP address or hostname of the agent node."
+            description: "Private IP address of the agent node."
+          public_ip:
+            type: string
+            description: "Public IP address or hostname of the agent node."
           username:
             type: string
             description: "Username for SSH access to the agent node."
@@ -59,10 +65,10 @@ outputs:
         source: "hashicorp/kubernetes"
         version: "2.17.0"
         attributes:
-          host: api_endpoint
-          cluster_ca_certificate: cluster_ca_certificate
-          client_certificate: client_certificate
-          client_key: client_key
+          host: attributes.api_endpoint
+          cluster_ca_certificate: attributes.cluster_ca_certificate
+          client_certificate: attributes.client_certificate
+          client_key: attributes.client_key
       helm:
         source: "hashicorp/helm"
         version: "2.8.0"
@@ -80,11 +86,13 @@ sample:
   spec:
     master_nodes:
       master1:
-        host: "192.168.1.1"
+        private_ip: "10.0.0.1"
+        public_ip: "192.168.1.1"
         username: "admin"
-        private_key: "-----BEGIN PRIVATE KEY-----\n..."
+        private_key: "base64_encoded_private_key"
     agent_nodes:
       agent1:
-        host: "192.168.1.2"
+        private_ip: "10.0.0.2"
+        public_ip: "192.168.1.2"
         username: "admin"
         private_key: "-----BEGIN PRIVATE KEY-----\n..."

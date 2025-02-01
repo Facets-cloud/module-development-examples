@@ -1,0 +1,32 @@
+intent: misc
+flavor: aws-public-vms
+version: 1.0
+clouds:
+  - aws
+
+spec:
+  type: object
+  properties:
+    instance_count:
+      type: integer
+      description: "Number of VMs to create"
+    region:
+      type: string
+      enum: ["us-east-1", "us-west-1", "us-west-2", "ap-south-1", "us-east-2"]
+      description: "AWS region to deploy the VMs"
+
+    instance_type:
+      type: string
+      enum: ["t3.micro", "t3.small", "t3.medium", "t3.large", "t3.xlarge"]
+  default:
+    type: "@outputs/aws_vm_details"
+    providers:
+      - aws
+
+sample:
+  kind: "misc"
+  flavor: "aws-public-vms"
+  version: "1.0"
+  spec:
+    instance_count: 2
+    region: "us-east-1"
