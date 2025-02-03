@@ -1,0 +1,45 @@
+intent: kafka
+flavor: bitnami
+version: 1.0
+clouds:
+  - kubernetes
+
+spec:
+  type: object
+  properties:
+    cpu:
+      type: string
+      description: "CPU allocation for Kafka nodes"
+    memory:
+      type: string
+      description: "Memory allocation for Kafka nodes"
+    nodes:
+      type: integer
+      description: "Number of Kafka nodes"
+    version:
+      type: string
+      enum: ["3.8.0", "3.9.0", "4.0.0"]
+      description: "Kafka version to deploy"
+    custom_chart_values:
+      type: object
+      title: Values
+      description: "The values to be passed on to the chart in the form of a YAML object"
+      x-ui-yaml-editor: true
+      x-ui-placeholder: "Enter values in YAML format."
+    authentication_method:
+      type: string
+      enum: ["plaintext", "sasl"]
+      description: "Authentication method for Kafka"
+      default: "plaintext"
+
+sample:
+  kind: "kafka"
+  flavor: "bitnami"
+  version: "1.0"
+  spec:
+    cpu: "500m"
+    memory: "512Mi"
+    nodes: 3
+    version: "3.9.0"
+    custom_chart_values: {}
+    authentication_method: "plaintext"
