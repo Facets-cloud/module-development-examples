@@ -22,7 +22,7 @@ spec:
 
 outputs:
   default:
-    type: "@outputs/azure_vnet_details"
+    type: "@output/azure_vnet_details"
 
 sample:
   kind: network

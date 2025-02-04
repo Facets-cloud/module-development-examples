@@ -33,7 +33,7 @@ In the `facets.yaml` file, you define the provider exposure like this:
 ```yaml
 outputs:
   default:
-    type: "@outputs/kubernetes_cluster_details"
+    type: "@output/kubernetes_cluster_details"
     providers:
       helm:
         source: hashicorp/helm
@@ -62,7 +62,7 @@ If a module requires the Helm provider exposed by the `gke_autopilot` module, it
 ```yaml
 inputs:
   kubernetes_cluster_details:
-    type: "@outputs/kubernetes_cluster_details"
+    type: "@output/kubernetes_cluster_details"
     providers:
       - helm
 ```

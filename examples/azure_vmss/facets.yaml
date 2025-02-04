@@ -23,11 +23,11 @@ spec:
 
 inputs:
   azure_vnet_details:
-    type: "@outputs/azure_vnet_details"
+    type: "@output/azure_vnet_details"
 
 outputs:
   default:
-    type: "@outputs/azure_vmss_details"
+    type: "@output/azure_vmss_details"
 
 sample:
   kind: misc

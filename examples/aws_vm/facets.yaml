@@ -19,7 +19,7 @@ spec:
       type: string
       enum: ["t3.micro", "t3.small", "t3.medium", "t3.large", "t3.xlarge"]
   default:
-    type: "@outputs/aws_vm_details"
+    type: "@output/aws_vm_details"
     providers:
       - aws
 
