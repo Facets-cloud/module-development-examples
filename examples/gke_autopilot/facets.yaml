@@ -12,11 +12,11 @@ spec:
 
 inputs:
   gcp_network_details:
-    type: "@outputs/gcp_network_details"
+    type: "@output/gcp_network_details"
 
 outputs:
   default:
-    type: "@outputs/kubernetes_cluster_details"
+    type: "@output/kubernetes_cluster_details"
     providers:
       helm:
         source: hashicorp/helm

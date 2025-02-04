@@ -15,13 +15,13 @@ spec:
 
 inputs:
   ecs_cluster_details:
-    type: "@outputs/ecs_cluster_details"
+    type: "@output/ecs_cluster_details"
   aws_vpc_details:
-    type: "@outputs/aws_vpc_details"
+    type: "@output/aws_vpc_details"
 
 outputs:
   default:
-    type: "@outputs/ecs_service_details"
+    type: "@output/ecs_service_details"
 
 sample:
   kind: ecs_service

@@ -15,7 +15,7 @@ spec:
 
 outputs:
   default:
-    type: "@outputs/aws_vpc_details"
+    type: "@output/aws_vpc_details"
 
 sample:
   kind: network

@@ -19,7 +19,7 @@ spec:
 
 outputs:
   default:
-    type: "@outputs/gcp_network_details"
+    type: "@output/gcp_network_details"
 
 sample:
   kind: network

@@ -12,7 +12,7 @@ spec:
 
 outputs:
   default:
-    type: "@outputs/ecs_cluster_details"
+    type: "@output/ecs_cluster_details"
 
 sample:
   kind: ecs_cluster

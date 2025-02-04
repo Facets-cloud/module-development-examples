@@ -59,7 +59,7 @@ spec:
 
 outputs:
   default:
-    type: "@outputs/kubernetes_cluster_details"
+    type: "@output/kubernetes_cluster_details"
     providers:
       kubernetes:
         source: "hashicorp/kubernetes"
