@@ -38,9 +38,9 @@ module "k3s" {
 
 provider "kubernetes" {
   host                   = module.k3s.kubernetes.api_endpoint
-  cluster_ca_certificate = base64decode(module.k3s.kubernetes.cluster_ca_certificate)
-  client_certificate     = base64decode(module.k3s.kubernetes.client_certificate)
-  client_key             = base64decode(module.k3s.kubernetes.client_key)
+  cluster_ca_certificate = module.k3s.kubernetes.cluster_ca_certificate
+  client_certificate     = module.k3s.kubernetes.client_certificate
+  client_key             = module.k3s.kubernetes.client_key
 }
 
 resource "kubernetes_service_account" "facets-cp-admin" {
@@ -84,11 +84,11 @@ resource "kubernetes_secret_v1" "facets-cp-admin-token" {
 resource "null_resource" "add-k8s-creds-backend" {
   depends_on = [kubernetes_secret_v1.facets-cp-admin-token]
   triggers = {
-    k8s_host = module.k8s-cluster.cluster_endpoint
+    k8s_host = module.k3s.kubernetes.api_endpoint
   }
   provisioner "local-exec" {
     command = <<EOF
-curl -X POST "https://${var.cc_metadata.cc_host}/cc/v1/clusters/${var.cluster.id}/credentials" -H "accept: */*" -H "Content-Type: application/json" -d "{ \"kubernetesApiEndpoint\": \"${module.k8s-cluster.cluster_endpoint}\", \"kubernetesToken\": \"${kubernetes_secret_v1.facets-cp-admin-token.data["token"]}\"}" -H "X-DEPLOYER-INTERNAL-AUTH-TOKEN: ${var.cc_metadata.cc_auth_token}"
+curl -X POST "https://${var.cc_metadata.cc_host}/cc/v1/clusters/${var.cluster.id}/credentials" -H "accept: */*" -H "Content-Type: application/json" -d "{ \"kubernetesApiEndpoint\": \"${module.k3s.kubernetes.api_endpoint}\", \"kubernetesToken\": \"${kubernetes_secret_v1.facets-cp-admin-token.data["token"]}\"}" -H "X-DEPLOYER-INTERNAL-AUTH-TOKEN: ${var.cc_metadata.cc_auth_token}"
 EOF
   }
 }

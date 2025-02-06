@@ -270,7 +270,8 @@ resource "null_resource" "servers_drain" {
   provisioner "remote-exec" {
     when = destroy
     inline = [
-      "${self.triggers.kubectl_cmd} drain ${self.triggers.server_name} --force --delete-emptydir-data --ignore-daemonsets --timeout=${self.triggers.drain_timeout}"
+      "${self.triggers.kubectl_cmd} drain ${self.triggers.server_name} --force --delete-emptydir-data --ignore-daemonsets --timeout=${self.triggers.drain_timeout}",
+      "/usr/local/bin/k3s-uninstall.sh || true"
     ]
   }
 }
