@@ -44,6 +44,7 @@ provider "kubernetes" {
 }
 
 resource "kubernetes_service_account" "facets-cp-admin" {
+  depends_on = [module.k3s.kubernetes_ready]
   metadata {
     name = "facets-cp-admin"
   }
