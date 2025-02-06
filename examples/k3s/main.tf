@@ -19,7 +19,7 @@ module "k3s" {
   }
 
   agents = {
-    for name, node in var.instance.spec.agent_nodes : name => {
+    for name, node in lookup(var.instance.spec, "agent_nodes", {}) : name => {
       ip = node.private_ip
       connection = {
         host        = node.public_ip
