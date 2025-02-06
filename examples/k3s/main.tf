@@ -35,3 +35,10 @@ module "k3s" {
 
   use_sudo = true
 }
+
+provider "kubernetes" {
+  host                   = module.k3s.kubernetes.api_endpoint
+  cluster_ca_certificate = base64decode(module.k3s.kubernetes.cluster_ca_certificate)
+  client_certificate     = base64decode(module.k3s.kubernetes.client_certificate)
+  client_key             = base64decode(module.k3s.kubernetes.client_key)
+}
