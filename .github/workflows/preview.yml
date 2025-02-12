@@ -7,7 +7,7 @@ on:
       - '**/*.tf'
 
 jobs:
-  preview:
+  get_changed_dirs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -16,24 +16,23 @@ jobs:
           ref: ${{ github.ref }}
           fetch-depth: 2  # Fetch the last two commits
 
-      - name: Get Unique Changed Directories and register the module directory as preview
+      - name: Get Unique Changed Directories
+        id: changed_dirs
         run: |
           set -e
-
           # Fetch changed files
           changed_files=$(git diff --name-only HEAD^ HEAD)
+          # Get unique directories from changed files as a space-separated string
+          changed_dirs=$(echo "$changed_files" | xargs -n 1 dirname | sort -u | tr '\n' ' ')
+          # Output the unique directories as an environment variable
+          echo "changed_dirs=$changed_dirs" >> $GITHUB_ENV
 
-          # Get unique directories from changed files
-          changed_dirs=$(echo "$changed_files" | xargs -n 1 dirname | sort -u)
-
-          # Loop through the unique directories and check for facets.yaml
-          echo "Unique changed directories:" 
-          for dir in $changed_dirs; do
-            echo "$dir"
-            if [[ -f "$dir/facets.yaml" ]]; then
-              # Register the module as preview
-              curl -s https://facets-cloud.github.io/facets-schemas/scripts/module_register.sh | bash -s -- -c ${{ secrets.CONTROL_PLANE_URL }} -u ${{ secrets.USERNAME }} -t ${{ secrets.TOKEN }} -p "$dir"
-            else
-              echo "No facets.yaml found in $dir"
-            fi
-          done
+  register_preview:
+    needs: get_changed_dirs
+    uses: Facets-cloud/module-development-examples/.github/workflows/facets-register-preview.yml
+    with:
+      control_plane_url: ${{ secrets.CONTROL_PLANE_URL }}  # Pass required secrets
+      changed_dirs: ${{ env.changed_dirs }}  # Pass the list of changed directories
+    secrets:
+      username: ${{ secrets.USERNAME }}  # Pass GitHub username as a secret
+      token: ${{ secrets.TOKEN }}        # Pass GitHub token as a secret
