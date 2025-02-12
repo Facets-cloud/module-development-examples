@@ -1,3 +1,7 @@
+locals {
+  test = true
+}
+
 resource "azurerm_resource_group" "this" {
   name     = "${var.environment.unique_name}-rg"
   location = var.instance.spec.location
