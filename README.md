@@ -240,7 +240,7 @@ module "example_module" {
     ```
 
 - **Publishing the Module**:
-  - To publish the module in preview and make it available to all projects, use the following command:
+  - To publish the module and make it available to all projects, use the following command:
     ```bash
     curl -s https://facets-cloud.github.io/facets-schemas/scripts/module_publish.sh | bash -s -- -c <control_plane_url> -u <username> -t <token> -i <module_intent> -f <module_flavor> -v <module_version>
     ```
@@ -257,7 +257,7 @@ module "example_module" {
 
   ```mermaid
   graph TD
-      A[Push to Feature Branch] -->|Module Published as Preview| B[Test in Preview Projects]
+      A[Push to Feature Branch] -->|Module Published as Preview| B[Test in Testing Projects]
       B --> C[Merge to Main Branch]
       C -->|Publish as Stable| D[Done!]
   ```
