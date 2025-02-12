@@ -16,7 +16,7 @@ jobs:
           ref: ${{ github.ref }}
           fetch-depth: 2  # Fetch the last two commits
 
-      - name: Get Unique Changed Directories
+      - name: Get Unique Changed Directories and register the module directory as preview
         run: |
           set -e
 
