@@ -3,7 +3,7 @@ name: Register Module Preview
 on:
   workflow_call:
     inputs:
-      changed_dirs:
+      module_dirs:
         required: true
         type: string
         description: 'List of unique changed directories'
@@ -33,7 +33,7 @@ jobs:
           set -e
 
           # Use the provided changed_dirs input
-          IFS=' ' read -r -a dirs <<< "${{ inputs.changed_dirs }}"
+          IFS=' ' read -r -a dirs <<< "${{ inputs.module_dirs }}"
 
           # Loop through the unique directories and check for facets.yaml
           echo "Unique changed directories:" 
