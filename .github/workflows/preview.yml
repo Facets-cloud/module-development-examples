@@ -33,7 +33,7 @@ jobs:
     needs: get_changed_dirs
     uses: Facets-cloud/module-development-examples/.github/workflows/facets-register-preview.yml@main
     with:
-      changed_dirs: ${{ needs.get_changed_dirs.outputs.changed_dirs }}  # Pass the list of changed directories
+      module_dirs: ${{ needs.get_changed_dirs.outputs.changed_dirs }}  # Pass the list of module directories
     secrets:
       username: ${{ secrets.USERNAME }}  # Pass GitHub username as a secret
       token: ${{ secrets.TOKEN }}        # Pass GitHub token as a secret
