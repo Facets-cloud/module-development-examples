@@ -29,7 +29,7 @@ jobs:
 
   register_preview:
     needs: get_changed_dirs
-    uses: Facets-cloud/module-development-examples/.github/workflows/facets-register-preview.yml
+    uses: Facets-cloud/module-development-examples/.github/workflows/facets-register-preview.yml@main
     with:
       control_plane_url: ${{ secrets.CONTROL_PLANE_URL }}  # Pass required secrets
       changed_dirs: ${{ env.changed_dirs }}  # Pass the list of changed directories
