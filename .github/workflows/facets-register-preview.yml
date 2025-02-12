@@ -3,9 +3,6 @@ name: Register Module Preview
 on:
   workflow_call:
     inputs:
-      control_plane_url:
-        required: true
-        type: string
       changed_dirs:
         required: true
         type: string
@@ -17,6 +14,9 @@ on:
       token:
         required: true
         description: 'Facets control plane token (stored as a secret)'
+      control_plane_url:
+        required: true
+        description: 'Facets control plane URL'
 
 jobs:
   register:
@@ -41,7 +41,7 @@ jobs:
             echo "$dir"
             if [[ -f "$dir/facets.yaml" ]]; then
               # Register the module as preview
-              curl -s https://facets-cloud.github.io/facets-schemas/scripts/module_register.sh | bash -s -- -c ${{ inputs.control_plane_url }} -u ${{ secrets.username }} -t ${{ secrets.token }} -p "$dir"
+              curl -s https://facets-cloud.github.io/facets-schemas/scripts/module_register.sh | bash -s -- -c ${{ secrets.control_plane_url }} -u ${{ secrets.username }} -t ${{ secrets.token }} -p "$dir"
             else
               echo "No facets.yaml found in $dir"
             fi
