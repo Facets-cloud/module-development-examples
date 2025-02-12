@@ -9,6 +9,8 @@ on:
 jobs:
   get_changed_dirs:
     runs-on: ubuntu-latest
+    outputs:
+      changed_dirs: ${{ steps.changed_dirs.outputs.changed_dirs }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -25,14 +27,14 @@ jobs:
           # Get unique directories from changed files as a space-separated string
           changed_dirs=$(echo "$changed_files" | xargs -n 1 dirname | sort -u | tr '\n' ' ')
           # Output the unique directories as an environment variable
-          echo "changed_dirs=$changed_dirs" >> $GITHUB_ENV
+          echo "::set-output name=changed_dirs::$changed_dirs"
 
   register_preview:
     needs: get_changed_dirs
     uses: Facets-cloud/module-development-examples/.github/workflows/facets-register-preview.yml@main
     with:
       control_plane_url: ${{ secrets.CONTROL_PLANE_URL }}  # Pass required secrets
-      changed_dirs: ${{ env.changed_dirs }}  # Pass the list of changed directories
+      changed_dirs: ${{ needs.get_changed_dirs.outputs.changed_dirs }}  # Pass the list of changed directories
     secrets:
       username: ${{ secrets.USERNAME }}  # Pass GitHub username as a secret
       token: ${{ secrets.TOKEN }}        # Pass GitHub token as a secret
