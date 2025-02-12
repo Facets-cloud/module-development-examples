@@ -1,5 +1,5 @@
 locals {
-  test = true
+  test = false
 }
 
 data "aws_ami" "ubuntu" {
