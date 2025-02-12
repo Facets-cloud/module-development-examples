@@ -35,6 +35,6 @@ jobs:
     with:
       module_dirs: ${{ needs.get_changed_dirs.outputs.changed_dirs }}  # Pass the list of module directories
     secrets:
-      username: ${{ secrets.USERNAME }}  # Pass GitHub username as a secret
-      token: ${{ secrets.TOKEN }}        # Pass GitHub token as a secret
-      control_plane_url: ${{ secrets.CONTROL_PLANE_URL }}  # Pass required secrets
+      username: ${{ secrets.USERNAME }}  # Facets control plane username
+      token: ${{ secrets.TOKEN }}        # Facets control plane token
+      control_plane_url: ${{ secrets.CONTROL_PLANE_URL }}  # Facets control plane URL
