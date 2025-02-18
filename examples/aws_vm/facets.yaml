@@ -18,11 +18,6 @@ spec:
     instance_type:
       type: string
       enum: ["t3.micro", "t3.small", "t3.medium", "t3.large", "t3.xlarge"]
-outputs:
-  default:
-    type: "@output/aws_vm_details"
-    providers:
-      - aws
 
 sample:
   kind: "misc"
