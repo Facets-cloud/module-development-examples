@@ -32,7 +32,7 @@ spec:
           private_key:
             type: string
             description: "Private key for SSH access to the master node."
-        required: ["host", "username", "private_key"]
+        required: ["private_ip", "username", "private_key", "public_ip"]
     agent_nodes:
       title: Agent Nodes
       description: "Objects of all agent nodes with connection details."
@@ -54,7 +54,7 @@ spec:
           private_key:
             type: string
             description: "Private key for SSH access to the agent node."
-        required: ["host", "username", "private_key"]
+        required: ["private_ip", "username", "private_key"]
   required: ["master_nodes", "agent_nodes"]
 
 outputs:
