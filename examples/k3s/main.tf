@@ -27,9 +27,10 @@ module "k3s" {
         private_key = base64decode(node.private_key)
       }
       
-      flags = [
-        "--node-external-ip ${node.public_ip}"
-      ]
+      flags = concat(
+        ["--disable=servicelb"],  # Always include this flag
+        node.public_ip != "" ? ["--node-external-ip ${node.public_ip}"] : []
+      )
     }
   }
 
